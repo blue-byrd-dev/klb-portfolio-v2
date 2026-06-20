@@ -1,26 +1,73 @@
 @import "tailwindcss";
 
-:root {
-  --background: #020617;
-  --foreground: #f8fafc;
+@theme {
+  --color-primary: #e27602;
+  --color-secondary: #a020f0;
+  --color-accent: #1e90ff;
+
+  --color-background: #121212;
+  --color-surface: #1e1e1e;
+  --color-surface-soft: #27272a;
+
+  --color-text: #ffffff;
+  --color-muted: #afafaf;
+
+  --radius-card: 1rem;
+  --radius-button: 0.75rem;
+
+  --container-main: 1200px;
 }
 
-* {
-  box-sizing: border-box;
+.text-gradient {
+  display: inline-block;
+  background: linear-gradient(
+    90deg,
+    var(--color-primary) 0%,
+    var(--color-secondary) 80%
+  );
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
 }
 
-html {
-  scroll-behavior: smooth;
+.card {
+  @apply rounded-2xl border p-6 transition-all duration-300;
+  background: linear-gradient(
+    180deg,
+    rgba(39, 39, 42, 0.95) 0%,
+    rgba(30, 30, 30, 0.95) 100%
+  );
+  border-color: rgba(255, 255, 255, 0.08);
 }
 
-body {
-  margin: 0;
-  min-height: 100vh;
-  background: var(--background);
-  color: var(--foreground);
+.card:hover {
+  transform: translateY(-2px);
+  border-color: rgba(226, 118, 2, 0.35);
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.35);
 }
 
-a {
-  color: inherit;
-  text-decoration: none;
+.gradient-border {
+  border: 1px solid transparent;
+  background:
+    linear-gradient(var(--color-surface), var(--color-surface)) padding-box,
+    linear-gradient(135deg, var(--color-primary), var(--color-secondary))
+      border-box;
+}
+
+.glass {
+  background: rgba(39, 39, 42, 0.75);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.section-divider {
+  border-top: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.surface {
+  background: linear-gradient(
+    180deg,
+    rgba(39, 39, 42, 0.6),
+    rgba(18, 18, 18, 0.8)
+  );
 }
